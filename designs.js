@@ -1,6 +1,3 @@
-const pixelCanvas = $('pixelCanvas');
-const sizePicker = $('#sizePicker');
-const colorPicker = $('#colorPicker');
 //create and display grid
 function makeGrid(width, height) {
   let grid='';
@@ -11,11 +8,11 @@ function makeGrid(width, height) {
     }
     grid += '</tr>';
   }
-  pixelCanvas.html(grid);
+  $('#pixelCanvas').html(grid);
 }
 
 // When size is submitted by the user, call makeGrid()
-sizePicker.submit(function(event) {
+$('#sizePicker').submit(function(event) {
   const width = $('#inputWeight').val();
   const height = $('#inputHeight').val();
   makeGrid(width, height);
@@ -23,7 +20,7 @@ sizePicker.submit(function(event) {
 });
 
 //apply the selected color to each cell clicked in the grid
-pixelCanvas.on('click', 'td', function(evt){
-  var color = colorPicker.val()
+$('#pixelCanvas').on('click', 'td', function(evt){
+  var color = $('#colorPicker').val()
   $(evt.target).css('background', color);
 });
